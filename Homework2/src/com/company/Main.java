@@ -2,6 +2,7 @@ package com.company;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello");
+        Controller controller = new Controller(new Model(), new View());
+        controller.processUser();
     }
 }
