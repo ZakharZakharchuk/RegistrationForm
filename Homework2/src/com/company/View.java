@@ -4,7 +4,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class View implements TextConstatn {
-    public static final ResourceBundle bundle = ResourceBundle.getBundle("com.company.messages", new Locale("en"));
+    public static final ResourceBundle bundle = ResourceBundle.getBundle(
+            //"com.company.messages", new Locale("en")
+            "com.company.messages", new Locale("ua"));
 
     public void printMessage(String message) {
         System.out.println(message);

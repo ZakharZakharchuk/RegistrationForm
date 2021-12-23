@@ -14,7 +14,13 @@ public class Input implements Regex,TextConstatn {
     }
     public void input(){
         Utility utility=new Utility(view,scanner);
-        this.name=utility.inputData(NAME_DATA,REGEX_NAME_LAT);
-        this.login=utility.inputData(LOGIN_DATA,REGEX_LOGIN);
+        String str = (String.valueOf(View.bundle.getLocale()).equals("ua")) ? REGEX_NAME_UKR : REGEX_NAME_LAT;
+        try {
+            this.name = utility.inputData(NAME_DATA, str);
+            this.login = utility.inputData(LOGIN_DATA, REGEX_LOGIN);
+        }
+        catch(MyException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
