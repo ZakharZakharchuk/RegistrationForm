@@ -1,6 +1,33 @@
 package com.company;
 
-public class View {
-    public static final String NO_DATA="Введіть данні";
-    public static final String WRONG_DATA="Введіть коректні дані";
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+public class View implements TextConstatn {
+    public static final ResourceBundle bundle = ResourceBundle.getBundle("com.company.messages", new Locale("en"));
+
+    public void printMessage(String message) {
+        System.out.println(message);
+    }
+
+    public String concatination(String... mesagge) {
+        StringBuilder result = new StringBuilder();
+        for (String i : mesagge) {
+            result.append(i);
+        }
+        return result.toString();
+    }
+
+    public void printStringInput(String message) {
+        printMessage(concatination(
+                bundle.getString(INPUT_STRING_DATA),
+                bundle.getString(message)));
+    }
+
+    public void printWrongStringInput(String message) {
+        printMessage(concatination(
+                bundle.getString(WRONG_INPUT_DATA),
+                bundle.getString(INPUT_STRING_DATA),
+                bundle.getString(message)));
+    }
 }
