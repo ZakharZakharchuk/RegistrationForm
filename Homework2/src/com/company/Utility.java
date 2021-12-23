@@ -10,12 +10,10 @@ public class Utility {
         this.view = view;
         this.scanner = scanner;
     }
-    public String inputData(String message, String regex) throws MyException {
+    public String inputData(String message, String regex) {
+        String result;
         view.printStringInput(message);
-        String result=scanner.nextLine();
-        if(result==null)
-            throw new MyException("null");
-        while(!(scanner.hasNext()&&result.matches(regex))){
+        while(!(scanner.hasNext()&&(result=scanner.nextLine()).matches(regex))){
             view.printWrongStringInput(message);
         }
         return result;
